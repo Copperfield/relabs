@@ -28,7 +28,7 @@ Architecture
 I’d like kept as simple as possible. The are 3 roles which should be able to
 deployment into 3 different machines connected to the internet.
 
-1.  *Caputure*:* Right now this is a python script. it capture a webcam
+1.  *Caputure:* Right now this is a python script. it capture a webcam
 images and sent to async server
 
 2.  *Async server:* This server receive any allowed resource and generete a
