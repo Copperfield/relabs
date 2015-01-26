@@ -54,7 +54,8 @@ step is build a zero case. In this moment i only think about initial milestones
 
 1.  **Zero-case:** Build a dummy example application.
 
-**NOTE** You can follow milestone details thought github issues.
+**NOTE** You can follow milestone details thought github issues.The philosophy 
+under the issues is one branch per issue with “Ferature” label.
 
 License
 -------
@@ -62,6 +63,7 @@ This software is under MIT license
 
 Contributions
 -------------
+
 I really appreciate any contribution. Please fell free to send your code or
 you feedback
 
