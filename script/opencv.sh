@@ -1,4 +1,7 @@
+#Initial vars
+user=vagrant
 version=2.4.10
+virtualenv=/home/$user/.virtualenvs/relabs
 # Based on https://www.raben.com/book/export/html/3
 echo installing developer enviroment
 sudo apt-get -y install build-essential cmake pkg-config
@@ -36,4 +39,6 @@ echo compile opencv
 make
 echo installing opencv 
 sudo make install
+echo Activating cv2 inside virtualenv
+cp /usr/local/lib/python2.7/dist-packages/cv* $virtualenv/lib/python2.7/site-packages/
 exit 0
