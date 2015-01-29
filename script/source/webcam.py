@@ -1,4 +1,5 @@
 """
+based on: https://github.com/vmlaker/hello-websocket
 Continuously capture images from a webcam
 and update a socket dictionary server with the current snapshot.
 
@@ -28,11 +29,13 @@ cap = cv2.VideoCapture(-1)
 map_client = coils.MapSockClient(host, port, encode=False)
 
 # Set video dimensions, if given.
-if width: cap.set(3, width)
-if height: cap.set(4, height)
+if width:
+    cap.set(3, width)
+if height:
+    cap.set(4, height)
 
 # Monitor the framerate at 1s, 5s, 10s intervals.
-fps = coils.RateTicker((1,5,10))
+fps = coils.RateTicker((1, 5, 10))
 
 # Repeatedly capture current image,
 # encode and push on socket connection.
