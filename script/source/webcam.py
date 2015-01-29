@@ -34,7 +34,7 @@ if height: cap.set(4, height)
 # Monitor the framerate at 1s, 5s, 10s intervals.
 fps = coils.RateTicker((1,5,10))
 
-# Repeatedly capture current image, 
+# Repeatedly capture current image,
 # encode and push on socket connection.
 while True:
     hello, image = cap.read()
