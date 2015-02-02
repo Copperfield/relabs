@@ -1,0 +1,40 @@
+---
+- hosts: async
+  user: vagrant
+  vars:
+      root_path: /vagrant/
+
+
+  tasks:
+  - name: install python and pip
+    apt: name={{ item }} state=latest update_cache=yes
+    with_items:
+        - python
+        - python-dev
+        - python-pip
+    sudo: yes
+
+  - name: Installing virtualenv and virtualenvwrapper
+    pip: name={{ item }}
+    with_items:
+        - virtualenv
+        - virtualenvwrapper
+    sudo: yes
+
+  - name: Creating virtualenvwrapper's directory
+    file: path=~/.virtualenvs state=directory
+
+  - name: Setting workon home
+    shell: export WORKON_HOME=~/.virtualenvs
+
+  - name: Adding virtualenvwrapper to .bashrc
+    lineinfile: dest=~/.bashrc line='. /usr/local/bin/virtualenvwrapper.sh' insertafter=EOF
+
+  - name: Creating a new virtualenv
+    shell: virtualenv ~/.virtualenvs/relabs
+
+  - name: Intalling pip general dependecies
+    pip: requirements={{root_path}}requirements.txt state=present virtualenv=~/.virtualenvs/relabs
+
+  - name: Intalling pip specific dependecies
+    pip: requirements={{root_path}}requirements/async.txt state=present virtualenv=~/.virtualenvs/relabs

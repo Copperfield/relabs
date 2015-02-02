@@ -11,6 +11,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     async.vm.network "private_network", ip: "192.168.33.11"
     async.vm.provision "ansible" do |ansible|
       ansible.playbook = "playbooks/async.yml"
+      ansible.groups = {
+        "async" => ["192.168.33.11"],
+      }
     end
   end
 

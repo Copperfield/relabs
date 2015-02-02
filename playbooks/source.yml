@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: source
   user: vagrant
   vars:
       root_path: /vagrant/
